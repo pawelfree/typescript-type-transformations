@@ -14,7 +14,9 @@ export const programModeEnumMap = {
  * https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-4.html#const-assertions
  */
 
-export type IndividualProgram = unknown;
+type B = Exclude<keyof typeof programModeEnumMap, 'GROUP' | 'ANNOUNCEMENT'>;
+
+export type IndividualProgram = typeof programModeEnumMap[B];
 
 type tests = [
   Expect<
